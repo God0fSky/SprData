@@ -16,7 +16,7 @@ public class OrderController {
 
     private final OrderService orderService;
 
-    @GetMapping(value = "{id}")
+    @GetMapping("{id}")
     public OrderDto getById(@PathVariable Integer id) {
         if (id < 0) {
             throw new IllegalArgumentException("Invalid id");
@@ -24,12 +24,12 @@ public class OrderController {
         return orderService.getById(id);
     }
 
-    @GetMapping(value = "/all")
+    @GetMapping
     public List<OrderDto> getAllOrders() {
         return orderService.getAll();
     }
 
-    @DeleteMapping (value = "{id}")
+    @DeleteMapping ("{id}")
     public void deleteById(@PathVariable Integer id) {
         if (id < 0) {
             throw new IllegalArgumentException("Invalid id");
